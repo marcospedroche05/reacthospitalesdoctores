@@ -9,7 +9,7 @@ export default class CreateHospital extends Component {
   cajaDireccion = React.createRef();
   cajaTelefono = React.createRef();
   cajaCamas = React.createRef();
-  createHospital = (event) => {
+  crearHospital = (event) => {
     event.preventDefault();
     let request = "webresources/hospitales/post";
     let id = parseInt(this.cajaid.current.value);
@@ -37,7 +37,7 @@ export default class CreateHospital extends Component {
         <h1>Create Hopsital</h1>
         <h2 className="text-success">{this.state.mensaje}</h2>
         <br />
-        <form onSubmit={this.createHospital}>
+        <form onSubmit={this.crearHospital}>
           <label>ID hospital: </label>
           <input className="form-control" ref={this.cajaid} type="text" />
           <br />
