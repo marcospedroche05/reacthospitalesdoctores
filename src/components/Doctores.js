@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Global from "../Global";
 import axios from "axios";
+import DetallesDoctor from "./DetallesDoctor";
 
 export default class Doctores extends Component {
   url = Global.apiDoctores;
@@ -13,18 +14,27 @@ export default class Doctores extends Component {
       });
     });
   };
+  seleccionarDoctor = (id) => {
+    this.setState({
+      doctorSeleccionado: parseInt(id),
+    });
+  };
   state = {
     doctores: [],
+    doctorSeleccionado: 0,
   };
   componentDidMount = () => {
     this.loadDoctores();
   };
   componentDidUpdate = (oldProps) => {
-    if (oldProps.idhospital != this.props.idhospital) this.loadDoctores();
+    if (oldProps.idhospital != this.props.idhospital) {
+      this.loadDoctores();
+      this.seleccionarDoctor(0);
+    }
   };
   render() {
     return (
-      <div>
+      <div className="p-5">
         <br />
         <h1>
           Doctores del hospital{" "}
@@ -38,6 +48,7 @@ export default class Doctores extends Component {
               <th>Especialidad</th>
               <th>Salario</th>
               <th>ID hospital</th>
+              <th>Accion</th>
             </tr>
           </thead>
           <tbody>
@@ -48,11 +59,25 @@ export default class Doctores extends Component {
                   <td>{doctor.especialidad}</td>
                   <td>{doctor.salario}</td>
                   <td>{doctor.idHospital}</td>
+                  <td>
+                    <button
+                      className="btn btn-info text-white"
+                      onClick={() => {
+                        this.seleccionarDoctor(doctor.idDoctor);
+                      }}
+                    >
+                      Ver detalles
+                    </button>
+                  </td>
                 </tr>
               );
             })}
           </tbody>
         </table>
+        <br />
+        {this.state.doctorSeleccionado != 0 && (
+          <DetallesDoctor iddoctor={this.state.doctorSeleccionado} />
+        )}
       </div>
     );
   }
