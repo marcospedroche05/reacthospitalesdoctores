@@ -4,6 +4,8 @@ import MenuHospitales from "./components/MenuHospitales";
 import Home from "./components/Home";
 import Doctores from "./components/Doctores";
 import CreateHospital from "./components/CreateHospital";
+import UpdateHospital from "./components/UpdateHospital";
+import EliminarHospital from "./components/EliminarHospital";
 
 export default class Router extends Component {
   render() {
@@ -17,6 +19,8 @@ export default class Router extends Component {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/createhospital" element={<CreateHospital />} />
+          <Route path="/updatehospital" element={<UpdateHospital />} />
+          <Route path="/eliminarhospital" element={<EliminarHospital/>} />
           <Route path="/doctores/:idhospital" element={<DoctoresElement />} />
         </Routes>
       </BrowserRouter>

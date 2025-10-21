@@ -46,6 +46,16 @@ export default class MenuHospitales extends Component {
                   Crear hospital
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink to="/updatehospital" className="nav-link">
+                  Actualizar hospital
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/eliminarhospital" className="nav-link">
+                  Eliminar hospital
+                </NavLink>
+              </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
