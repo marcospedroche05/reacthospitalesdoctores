@@ -38,8 +38,13 @@ export default class MenuHospitales extends Component {
             <div className="collapse navbar-collapse" id="collapsibleNavbar">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <NavLink to="/" className="nav-link active">
+                  <NavLink to="/" className="nav-link">
                     Home
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/createhospital" className="nav-link">
+                    Crear hospital
                   </NavLink>
                 </li>
                 <li className="nav-item dropdown">
