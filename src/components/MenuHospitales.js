@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import Global from "../Global";
 import axios from "axios";
 
@@ -39,6 +39,11 @@ export default class MenuHospitales extends Component {
               <li className="nav-item">
                 <NavLink to="/" className="nav-link">
                   Home
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/hospitales" className="nav-link">
+                  Hospitales
                 </NavLink>
               </li>
               <li className="nav-item">

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Global from "../Global";
+import { Navigate } from "react-router-dom";
 
 export default class CreateHospital extends Component {
   url = Global.apiHospitales;
@@ -25,15 +26,18 @@ export default class CreateHospital extends Component {
     axios.post(this.url + request, hospital).then((response) => {
       this.setState({
         mensaje: "Hospital insertado correctamente",
+        status: true,
       });
     });
   };
   state = {
     mensaje: "",
+    status: false,
   };
   render() {
     return (
       <div className="p-5">
+        {this.state.status && <Navigate to="/hospitales" />}
         <h1>Create Hopsital</h1>
         <h2 className="text-success">{this.state.mensaje}</h2>
         <br />
